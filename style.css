@@ -21,13 +21,30 @@
 .header h1{
     font-weight: 700;
 }
+.title{
+    display: flex;
+    width: 340px;
+    margin-bottom: 14px;
+}
+.title h1{
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
 .main{
+    margin-top: 100px;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .quizz-space{
-    margin-top: 100px;
     border: 1px dashed #D4D4D4;
     border-radius: 5px;
     width: 340px;
@@ -73,4 +90,10 @@
     border-radius: 50px;
     background: none;
     cursor: pointer;
+}
+.lower {
+    margin-top: 35px;
+}
+.hidden{
+    display: none;
 }
