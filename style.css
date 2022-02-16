@@ -97,3 +97,8 @@
 .hidden{
     display: none;
 }
+.test-quizz{
+    width: 340px;
+    height: 181px;
+    background-color: green;
+}
