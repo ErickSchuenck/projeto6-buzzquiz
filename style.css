@@ -94,9 +94,6 @@
 .lower {
     margin-top: 35px;
 }
-.hidden{
-    display: none;
-}
 .test-quizz{
     width: 340px;
     height: 181px;
@@ -162,21 +159,126 @@
 }
 .quizz-container-lower{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+    max-width: 400px;
 }
 .quizz-option-image{
-    background-color: #EC362D;
     width: 163px;
     height: 113px;
+    background-size: cover;
+    cursor: pointer;
 }
 .quizz-option{
     margin: 10px;
 }
-.quizz-options-upper{
-    margin-top: 10px;
-    display: flex;
+.quizz-option-description{
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 5px;
 }
-.quizz-options-lower{
+.quizz-result{
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.quizz-result-header{
+    background-color: #EC362D;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 340px;
+    height: 99px;
+    left: 18px;
+    top: 207px;
+}
+.quizz-result-header h1{
+    font-family: Roboto, sans-serif;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.quizz-result-image{
+    width: 340px;
+    height: 255px;
+    background-size: cover;
+    margin-top: 9px;
+
+}
+.quizz-result-text{
+    max-width: 340px;
+    margin-top: 9px;
+}
+.quizz-result-text h1{
+    font-family: Roboto, sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.restart-button{
+    margin-top: 48px;
+    border: none;
+    cursor: pointer;
+    background-color: #EC362D;
+    color: white;
+    border-radius: 15px;
+    Width: 220px;
+    Height: 44px;
+}
+.restart-button h1{
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.return-home {
+    border: none;
+    background-color: none;
+    cursor: pointer;
+    margin-top: 8px;
+    Width: 219,64px;
+    Height: 44px;
+    color: #818181; 
+}
+.return-home h1{
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.whitish{
+    opacity: 0.3;
+}
+.reddish{
+    color: #FF4B4B;
+    opacity: 0.3;
+}
+.greenish{
+    color: #009C22;
+}
+.hidden{
+    display: none;
 }
