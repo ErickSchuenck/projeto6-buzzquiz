@@ -102,3 +102,52 @@
     height: 181px;
     background-color: green;
 }
+.quizz-header{
+    margin-top: 69px;
+    width: 100%;
+    height: 142px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+}
+.quizz-options-container{
+    margin-top: 221px;
+    width: 100%;
+    height: 436px;
+    background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.quizz-question{
+    width: 100%;
+    color: white;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.quizz-container-lower{
+    background-color: greenyellow;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.quizz-option-image{
+    background-color: #EC362D;
+    width: 163px;
+    height: 113px;
+}
+.quizz-option{
+    margin: 10px;
+}
+.quizz-options-upper{
+    margin-top: 10px;
+    display: flex;
+}
+.quizz-options-lower{
+    display: flex;
+}
