@@ -15,27 +15,20 @@
         <div class="title upper">
             <h1>Seus Quizzes</h1>
         </div>
-        <!-- a div acima deve aparecer apenas dinamicamente quando o usuário possuir algum quizz, para isso também deixei chamado de 'upper', pois ai conseguiremos fazê-lo sumir -->
         <div class="my-quizzes-space">   
             <div class="my-quizzes">
                 <div class="my-quizzes-message"><h1>Você não criou nenhum quizz ainda :(</h1></div>
 
-                <button class = "create-quizz" onclick="create_quizz()">Criar Quizz</button>
-                <!-- parece que para criar botões o hifem não funciona, (onlick = 'create-quizz()' não funciona) então usei o underline, se quiser podemos trocar por underline no projeto inteiro, ou deixar só nesses botões -->
+                <button class = "create-quizz" onclick="createQuizz()">Criar Quizz</button>
             </div>
         </div>    
         <div class="title lower">
             <h1>Todos os Quizzes</h1>
         </div>
-        <div class="test-quizz" onclick="hide_main_screen(), display_quizz_screen()">
-            <!-- como ainda não existem quizzes exibidos aqui, vou criar essa div só para simular como seria -->
+        <div class="test-quizz" onclick="hideMainScreen(), displayQuizzScreen()">
             <h1>Acerte os personagens de simpson e prove seu amor</h1>
         </div>
     </div>
-    <!-- Quizz Screen
-    Quando essa tela abrir, a ideia que eu tive foi colocar 
-    toda a div .main para display none (.hidden), e tirar o hidden 
-    da div quizz-screen -->
     <div class="quizz-screen hidden">
         <div class="quizz-header">
             <div class="black-filter">

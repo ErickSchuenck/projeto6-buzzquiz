@@ -23,19 +23,19 @@
             </div>
             <div class="quizz-container-lower">
                 <div class="quizz-option">
-                    <div class="quizz-option-image wrong card" onclick="reveal_cards_value(this), disable_cards(this)" style="background-image: url('img3.jpg');"></div>
+                    <div class="quizz-option-image wrong card" onclick="revealCardsValue(this), disableCards(this)" style="background-image: url('img3.jpg');"></div>
                     <div class="quizz-option-description wrong-text"><h2>Errado</h2></div>
                 </div>
                 <div class="quizz-option">
-                    <div class="quizz-option-image wrong card" onclick="reveal_cards_value(this), disable_cards(this)" style="background-image: url('img4.jpg');"></div>
+                    <div class="quizz-option-image wrong card" onclick="revealCardsValue(this), disableCards(this)" style="background-image: url('img4.jpg');"></div>
                     <div class="quizz-option-description wrong-text"><h2>Errado</h2></div>
                 </div>
                 <div class="quizz-option">
-                    <div class="quizz-option-image wrong card" onclick="reveal_cards_value(this), disable_cards(this)" style="background-image: url('img5.jpg');"></div>
+                    <div class="quizz-option-image wrong card" onclick="revealCardsValue(this), disableCards(this)" style="background-image: url('img5.jpg');"></div>
                     <div class="quizz-option-description wrong-text"><h2>Errado</h2></div>
                 </div>
                 <div class="quizz-option">
-                    <div class="quizz-option-image right card" onclick="reveal_cards_value(this), add_victory_counter(), disable_cards(this)" style="background-image: url('img6.jpg');"></div>
+                    <div class="quizz-option-image right card" onclick="revealCardsValue(this), addVictoryCounter(), disableCards(this)" style="background-image: url('img6.jpg');"></div>
                     <div class="quizz-option-description right-text"><h2>Certo</h2></div>
                 </div>
             </div>
@@ -46,19 +46,19 @@
             </div>
             <div class="quizz-container-lower">
                 <div class="quizz-option">
-                    <div class="quizz-option-image wrong card" onclick="reveal_cards_value(this)" style="background-image: url('img3.jpg');"></div>
+                    <div class="quizz-option-image wrong card" onclick="revealCardsValue(this)" style="background-image: url('img3.jpg');"></div>
                     <div class="quizz-option-description wrong-text"><h2>Errado</h2></div>
                 </div>
                 <div class="quizz-option">
-                    <div class="quizz-option-image wrong card" onclick="reveal_cards_value(this)" style="background-image: url('img4.jpg');"></div>
+                    <div class="quizz-option-image wrong card" onclick="revealCardsValue(this)" style="background-image: url('img4.jpg');"></div>
                     <div class="quizz-option-description wrong-text"><h2>Errado</h2></div>
                 </div>
                 <div class="quizz-option">
-                    <div class="quizz-option-image wrong card" onclick="reveal_cards_value(this)" style="background-image: url('img5.jpg');"></div>
+                    <div class="quizz-option-image wrong card" onclick="revealCardsValue(this)" style="background-image: url('img5.jpg');"></div>
                     <div class="quizz-option-description wrong-text"><h2>Errado</h2></div>
                 </div>
                 <div class="quizz-option">
-                    <div class="quizz-option-image right card" onclick="reveal_cards_value(this), add_victory_counter()" style="background-image: url('img6.jpg');"></div>
+                    <div class="quizz-option-image right card" onclick="revealCardsValue(this), addVictoryCounter()" style="background-image: url('img6.jpg');"></div>
                     <div class="quizz-option-description right-text"><h2>Certo</h2></div>
                 </div>
             </div>
@@ -72,8 +72,8 @@
         <div class="quizz-result-image" style="background-image: url('img7.jpg');">
         </div>
         <div class="quizz-result-text"><h1>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</h1></div>
-        <button class = "restart-button" onclick="restart_quizz()"><h1>Reiniciar Quizz</h1></button>
-        <button class = "return-home" onclick="return_home()"><h1>Voltar pra home</h1></button>
+        <button class = "restart-button" onclick="restartQuizz()"><h1>Reiniciar Quizz</h1></button>
+        <button class = "return-home" onclick="returnHome()"><h1>Voltar pra home</h1></button>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
