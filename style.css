@@ -254,7 +254,7 @@
 }
 .return-home {
     border: none;
-    background-color: none;
+    background-color: #fff;
     cursor: pointer;
     margin-top: 8px;
     Width: 219,64px;
@@ -283,4 +283,7 @@
 }
 .hidden{
     display: none;
+}
+.apagar{
+    background-color: chartreuse;
 }

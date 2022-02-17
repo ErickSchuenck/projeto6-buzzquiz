@@ -46,6 +46,14 @@ function addVictoryCounter(){
 function scrollIntoNextQuestion(){
     console.log ("função scroll into next question sendo executada");
 }
+function displayScore(){
+    let questionsArr = document.querySelectorAll('.quizz-question');
+    console.log(questionsArr);
+    let questionsNumber = questionsArr.length;
+    console.log("Você acertou " + victoryCounter + " perguntas de " + questionsNumber);
+    let percentualScore = (victoryCounter * 100) / questionsNumber;
+    console.log("Você acertou " + percentualScore + "% das questões");
+}
 function restartQuizz(){
     console.log('restart quizz')
 }
