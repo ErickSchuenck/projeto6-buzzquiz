@@ -1,5 +1,6 @@
 const quizzURL = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
 let victoryCounter = 0;
+let errorCounter = 0;
 
 
 function createQuizz(){
@@ -41,7 +42,21 @@ function disableCards(e){
 function addVictoryCounter(){
     console.log ("função add victory counter sendo executada");
     victoryCounter = victoryCounter + 1;
-    console.log(victoryCounter);
+    console.log("Acertos: " + victoryCounter);
+    checkForVictory();
+}
+function addErrorCounter(){
+    console.log ("função add error counter sendo executada");
+    errorCounter = errorCounter + 1;
+    console.log("Erros: " + errorCounter);
+    checkForVictory();
+}
+function checkForVictory(){
+    let questionsArr = document.querySelectorAll('.quizz-question');
+    let questionsNumber = questionsArr.length;
+    if (errorCounter + victoryCounter == questionsNumber){
+        displayScore();
+    } 
 }
 function scrollIntoNextQuestion(){
     console.log ("função scroll into next question sendo executada");
@@ -52,8 +67,24 @@ function displayScore(){
     let questionsNumber = questionsArr.length;
     console.log("Você acertou " + victoryCounter + " perguntas de " + questionsNumber);
     let percentualScore = (victoryCounter * 100) / questionsNumber;
-    console.log("Você acertou " + percentualScore + "% das questões");
+    percentualScore = Math.ceil(percentualScore);
+    alert("Você acertou " + percentualScore + "% das questões");
 }
 function restartQuizz(){
+    victoryCounter = 0;
+    errorCounter = 0;
     console.log('restart quizz')
+    let cards = document.querySelectorAll('.wrong');
+        for (let i = 0; i< cards.length; i++){
+        cards[i].classList.remove("whitish")
+    }
+    let wrongText = document.querySelectorAll('.wrong-text');
+    for (let i = 0; i< wrongText.length; i++){
+        wrongText[i].classList.remove("reddish")
+    }
+    let rightText = document.querySelectorAll('.right-text');
+    for (let i = 0; i< rightText.length; i++){
+        rightText[i].classList.remove("greenish")
+    }
+    cards[0].scrollIntoView();
 }
