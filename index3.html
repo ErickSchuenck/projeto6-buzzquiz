@@ -18,9 +18,9 @@
             <h1>Comece pelo começo</h1>
         </div>
         <div class="creation-input"><input id = "my-quizz-title" type="text" placeholder="Título do seu quizz"></div>
-        <div class="creation-input"><input id = "my-quizz-image" type="text" placeholder="URL da imagem do seu quizz"></div>
-        <div class="creation-input"><input id = "my-quizz-question-number" type="text" placeholder="Quantidade de perguntas do quizz"></div>
-        <div class="creation-input"><input id = "my-quizz-level-number" type="text" placeholder="Quantidade de níveis do quizz"></div>
+        <div class="creation-input"><input id = "my-quizz-image-URL" type="text" placeholder="URL da imagem do seu quizz"></div>
+        <div class="creation-input"><input id = "my-quizz-questions-number" type="text" placeholder="Quantidade de perguntas do quizz"></div>
+        <div class="creation-input"><input id = "my-quizz-levels-number" type="text" placeholder="Quantidade de níveis do quizz"></div>
         <button onclick="proceedIntoQuizzCreationPage2()"><h1>Prosseguir pra criar perguntas<h1></button>
     </div>
     <div class="quizz-info-2 hidden">
@@ -48,10 +48,63 @@
 
         <div class="creation-input"><input id = "question1-wrong-answer3" type="text" placeholder="Resposta incorreta 3"></div>
         <div class="creation-input"><input id = "question1-wrong-answer3-URL" type="text" placeholder="URL da imagem 3"></div>
+    
+        <div class="quizz-info-subtitle">
+            <h1>Pergunta 2</h1>
+            <div class="icon"><ion-icon name="create-outline"></ion-icon></div>
+        </div>
+
+        <button onclick="proceedIntoQuizzCreationPage3()"><h1>Prosseguir pra criar perguntas<h1></button>
+    </div>
+
+    <div class="quizz-info-3 hidden">
+        <div class="quizz-info-title">
+            <h1>Agora decida os níveis</h1>
+        </div>
+        <div class="quizz-info-subtitle">
+            <h1>Nível 1</h1>
+        </div>
+        <div class="creation-input"><input id = "level1-text" type="text" placeholder="Título do nível"></div>
+        <div class="creation-input"><input id = "level1-percent-rate" type="text" placeholder="% de acerto mínima"></div>
+        <div class="creation-input"><input id = "level1-image-URL" type="text" placeholder="url da imagem do nível"></div>
+        <div class="creation-input description"><input id = "level1-description" type="text" placeholder="descrição do nível"></div>
+        <div class="quizz-info-subtitle">
+            <h1>Nível 2</h1>
+            <div class="icon"><ion-icon name="create-outline"></ion-icon></div>
+        </div>
+        <div class="quizz-info-subtitle">
+            <h1>Nível 3</h1>
+            <div class="icon"><ion-icon name="create-outline"></ion-icon></div>
+        </div>
+        <button onclick="finishQuizzCreation()"><h1>Finalizar Quizz<h1></button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!--   colar no seu javascript 
+    
+    function proceedIntoQuizzCreationPage2(){
+    console.log('função proceedIntoQuizzCreationPage2() sendo executada')
+    document.querySelector('.quizz-info-1').classList.add('hidden');
+    document.querySelector('.quizz-info-2').classList.remove('hidden');
+}
+function proceedIntoQuizzCreationPage3(){
+    console.log('função proceedIntoQuizzCreationPage3() sendo executada')
+    document.querySelector('.quizz-info-1').classList.add('hidden');
+    document.querySelector('.quizz-info-2').classList.add('hidden');
+    document.querySelector('.quizz-info-3').classList.remove('hidden');
+}
+function finishQuizzCreation(){
+    alert('função finishQuizzCreation sendo executada')
+    createQuizzApi();
+}
+function createQuizzApi(){
+    console.log('creating quizz API');
+}
+    
+    -->
 </body>
 
 </html>

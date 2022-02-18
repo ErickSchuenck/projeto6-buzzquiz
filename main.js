@@ -35,7 +35,7 @@ function disableCards(e){
     console.log ("função disable cards sendo executada")
     let cards = e.parentNode.parentNode.querySelectorAll('.card');
     for (let i = 0; i< cards.length; i++){
-        cards[i].onclick.disabled = true
+        cards[i].classList.add('disabled')
     } 
     setTimeout(scrollIntoNextQuestion, 2000)
 }
@@ -92,4 +92,17 @@ function proceedIntoQuizzCreationPage2(){
     console.log('função proceedIntoQuizzCreationPage2() sendo executada')
     document.querySelector('.quizz-info-1').classList.add('hidden');
     document.querySelector('.quizz-info-2').classList.remove('hidden');
+}
+function proceedIntoQuizzCreationPage3(){
+    console.log('função proceedIntoQuizzCreationPage3() sendo executada')
+    document.querySelector('.quizz-info-1').classList.add('hidden');
+    document.querySelector('.quizz-info-2').classList.add('hidden');
+    document.querySelector('.quizz-info-3').classList.remove('hidden');
+}
+function finishQuizzCreation(){
+    alert('função finishQuizzCreation sendo executada')
+    createQuizzApi();
+}
+function createQuizzApi(){
+    console.log('creating quizz API');
 }
