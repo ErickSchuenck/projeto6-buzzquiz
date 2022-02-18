@@ -88,3 +88,8 @@ function restartQuizz(){
     }
     cards[0].scrollIntoView();
 }
+function proceedIntoQuizzCreationPage2(){
+    console.log('função proceedIntoQuizzCreationPage2() sendo executada')
+    document.querySelector('.quizz-info-1').classList.add('hidden');
+    document.querySelector('.quizz-info-2').classList.remove('hidden');
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuzzQuiz</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="header">
+        <h1>BuzzQuizz</h1>
+    </div>
+    <div class="quizz-info-1">
+        <div class="quizz-info-title">
+            <h1>Comece pelo começo</h1>
+        </div>
+        <div class="creation-input"><input id = "my-quizz-title" type="text" placeholder="Título do seu quizz"></div>
+        <div class="creation-input"><input id = "my-quizz-image" type="text" placeholder="URL da imagem do seu quizz"></div>
+        <div class="creation-input"><input id = "my-quizz-question-number" type="text" placeholder="Quantidade de perguntas do quizz"></div>
+        <div class="creation-input"><input id = "my-quizz-level-number" type="text" placeholder="Quantidade de níveis do quizz"></div>
+        <button onclick="proceedIntoQuizzCreationPage2()"><h1>Prosseguir pra criar perguntas<h1></button>
+    </div>
+    <div class="quizz-info-2 hidden">
+        <div class="quizz-info-title">
+            <h1>Crie suas perguntas</h1>
+        </div>
+        <div class="quizz-info-subtitle">
+            <h1>Pergunta 1</h1>
+        </div>
+        <div class="creation-input"><input id = "question1-text" type="text" placeholder="Texto da pergunta"></div>
+        <div class="creation-input"><input id = "question1-background" type="text" placeholder="Cor de fundo da pergunta"></div>
+        <div class="quizz-info-subtitle">
+            <h1>Resposta correta</h1>
+        </div>
+        <div class="creation-input"><input id = "question1-right-answer" type="text" placeholder="Resposta correta"></div>
+        <div class="creation-input"><input id = "question1-right-image" type="text" placeholder="URL da imagem"></div>
+        <div class="quizz-info-subtitle">
+            <h1>Resposta incorretas</h1>
+        </div>
+        <div class="creation-input"><input id = "question1-wrong-answer1" type="text" placeholder="Resposta incorreta 1"></div>
+        <div class="creation-input bigger-margin"><input id = "question1-wrong-answer1-URL" type="text" placeholder="URL da imagem 1"></div>
+
+        <div class="creation-input"><input id = "question1-wrong-answer2" type="text" placeholder="Resposta incorreta 2"></div>
+        <div class="creation-input bigger-margin"><input id = "question1-wrong-answer2-URL" type="text" placeholder="URL da imagem 2"></div>
+
+        <div class="creation-input"><input id = "question1-wrong-answer3" type="text" placeholder="Resposta incorreta 3"></div>
+        <div class="creation-input"><input id = "question1-wrong-answer3-URL" type="text" placeholder="URL da imagem 3"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
