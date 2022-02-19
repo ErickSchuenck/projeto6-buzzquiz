@@ -69,16 +69,22 @@ let testObject =
     ],
     levels: [
         {
-            title: "Título do nível 1",
+            title: "VOCÊ FOI MTO MAL",
             image: "https://http.cat/411.jpg",
             text: "Descrição do nível 1",
             minValue: 0
         },
         {
-            title: "Título do nível 2",
+            title: "VOCÊ FOI MEDIO",
             image: "https://http.cat/412.jpg",
             text: "Descrição do nível 2",
             minValue: 50
+        },
+        {
+            title: "VOCÊ FOI MTO BEM",
+            image: "https://http.cat/412.jpg",
+            text: "Descrição do nível 2",
+            minValue: 70
         }
     ]
 }
@@ -157,8 +163,33 @@ function displayScore() {
     displayQuizzResult();
 }
 function displayQuizzResult(){
-   console.log('displaying quizz result')
-//    if (percentualScore >= testObject.levels[])  
+    let reversedLevels = testObject.levels.reverse()
+    for (let i = 0; i < testObject.levels.length; i++){
+        if (reversedLevels[i].minValue < percentualScore){
+            alert ('mostrando resultado')
+            let quizzResult = document.querySelector('.insert-quizz-result');
+            console.log(quizzResult);
+            quizzResult.innerHTML =
+                `
+            <div class="quizz-result">
+                <div class="quizz-result-header">
+                    <h1>88% de acerto: Você é praticamente um aluno de Hogwarts!</h1>
+                </div>
+                <div class="quizz-result-image" style="background-image: url('img7.jpg');"></div>
+                <div class="quizz-result-text">
+                    <h1>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.</h1>
+                </div>
+                <button class="restart-button" onclick="restartQuizz()">
+                    <h1>Reiniciar Quizz</h1>
+                </button>
+                <button class="return-home" onclick="returnHome()">
+                    <h1>Voltar pra home</h1>
+                </button>
+            </div>
+            `
+            return;
+        }
+    }
 }
 function restartQuizz() {
     victoryCounter = 0;
@@ -185,11 +216,7 @@ function createQuizzApi() {
     console.log('creating quizz API');
 }
 function getObjectReturnVisual() {
-    console.log(testObject);
-    console.log(testObject.title);
     let main1 = document.querySelector('body');
-    
-    let main2;
     main1.innerHTML = `
     <div class="header">
             <h1>BuzzQuizz</h1>
@@ -225,6 +252,7 @@ function getObjectReturnVisual() {
                             <h2>${testObject.questions[i].answers[j].text}</h2>
                         </div>
                     </div>
+                    <div class "insert-quizz-result"></div>
                     `
                 }
         }
