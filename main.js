@@ -20,6 +20,16 @@ let testObject =
                     text: "Texto da resposta 2",
                     image: "https://http.cat/412.jpg",
                     isCorrectAnswer: false
+                },
+                {
+                    text: "Texto da resposta 3",
+                    image: "https://http.cat/413.jpg",
+                    isCorrectAnswer: false
+                },
+                {
+                    text: "Texto da resposta 4",
+                    image: "https://http.cat/414.jpg",
+                    isCorrectAnswer: false
                 }
             ]
         },
