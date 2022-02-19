@@ -1,6 +1,7 @@
 const quizzURL = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
 let victoryCounter = 0;
 let errorCounter = 0;
+let percentualScore = 0;
 let testObject =
 {
     id: 1,
@@ -103,13 +104,11 @@ function revealCardsValue(e) {
         cards[i].classList.add("whitish")
     }
     e.classList.remove("whitish");
-    let wrongText = e.parentNode.parentNode.querySelectorAll('.wrong-text');
-    for (let i = 0; i < wrongText.length; i++) {
-        wrongText[i].classList.add("reddish")
-    }
-    let rightText = e.parentNode.parentNode.querySelectorAll('.right-text');
-    for (let i = 0; i < rightText.length; i++) {
-        rightText[i].classList.add("greenish")
+    console.log('OLHE AQUI: ' + e.parentNode.parentNode)
+    let text = e.parentNode.parentNode.querySelectorAll('.quizz-option-description');
+        for (let i = 0; i < text.length; i++) {
+            if (e.querySelector('.hidden').innerHTML == 'false'){text[i].classList.add("reddish")
+            } else {text[i].classList.add("greenish")}
     }
 }
 function disableCards(e) {
@@ -123,25 +122,25 @@ function disableCards(e) {
 function addCounter(e){
     console.log('adding counter...')
     let verification = e.querySelector('.hidden');
-    console.log(verification);
-    if (verification.value == true) {addVictoryCounter}
-    else {addErrorCounter};
+    console.log(verification.innerHTML);
+    if (verification.innerHTML == 'true') {addVictoryCounter()}
+    else {addErrorCounter()};
 }
 function addVictoryCounter() {
     console.log("função add victory counter sendo executada");
     victoryCounter = victoryCounter + 1;
-    console.log("Acertos: " + victoryCounter);
+    console.log("Acertos: " + victoryCounter + " Erros: " + errorCounter);
     checkForVictory();
 }
 function addErrorCounter() {
     console.log("função add error counter sendo executada");
     errorCounter = errorCounter + 1;
-    console.log("Erros: " + errorCounter);
+    console.log("Acertos: " + victoryCounter + " Erros: " + errorCounter);
     checkForVictory();
 }
 function checkForVictory() {
     if (errorCounter + victoryCounter == testObject.questions.length) {
-        displayScore();
+        setTimeout (displayScore, 2000);
     } else {return}
 }
 function scrollIntoNextQuestion() {
@@ -152,26 +151,19 @@ function displayScore() {
     console.log(questionsArr);
     let questionsNumber = questionsArr.length;
     console.log("Você acertou " + victoryCounter + " perguntas de " + questionsNumber);
-    let percentualScore = (victoryCounter * 100) / questionsNumber;
+    percentualScore = (victoryCounter * 100) / questionsNumber;
     percentualScore = Math.ceil(percentualScore);
     alert("Você acertou " + percentualScore + "% das questões");
+    displayQuizzResult();
+}
+function displayQuizzResult(){
+   console.log('displaying quizz result')
+//    if (percentualScore >= testObject.levels[])  
 }
 function restartQuizz() {
     victoryCounter = 0;
     errorCounter = 0;
     console.log('restart quizz')
-    let cards = document.querySelectorAll('.wrong');
-    for (let i = 0; i < cards.length; i++) {
-        cards[i].classList.remove("whitish")
-    }
-    let wrongText = document.querySelectorAll('.wrong-text');
-    for (let i = 0; i < wrongText.length; i++) {
-        wrongText[i].classList.remove("reddish")
-    }
-    let rightText = document.querySelectorAll('.right-text');
-    for (let i = 0; i < rightText.length; i++) {
-        rightText[i].classList.remove("greenish")
-    }
     cards[0].scrollIntoView();
 }
 function proceedIntoQuizzCreationPage2() {
