@@ -5,7 +5,7 @@ let testObject =
 {
     id: 1,
     title: "Título do quizz",
-    image: "https://http.cat/411.jpg",
+    image: "https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2010/11/Hogwarts.jpeg",
     questions: [
         {
             title: "Título da pergunta 1",
@@ -98,10 +98,11 @@ function displayQuizzScreen() {
 }
 function revealCardsValue(e) {
     console.log("função reveal cards value sendo executada");
-    let cards = e.parentNode.parentNode.querySelectorAll('.wrong');
+    let cards = e.parentNode.parentNode.querySelectorAll('.card');
     for (let i = 0; i < cards.length; i++) {
         cards[i].classList.add("whitish")
     }
+    e.classList.remove("whitish");
     let wrongText = e.parentNode.parentNode.querySelectorAll('.wrong-text');
     for (let i = 0; i < wrongText.length; i++) {
         wrongText[i].classList.add("reddish")
@@ -120,8 +121,10 @@ function disableCards(e) {
     setTimeout(scrollIntoNextQuestion, 2000)
 }
 function addCounter(e){
-    let verification = e.querySelector('.p')
-    if (verification == true) {addVictoryCounter}
+    console.log('adding counter...')
+    let verification = e.querySelector('.hidden');
+    console.log(verification);
+    if (verification.value == true) {addVictoryCounter}
     else {addErrorCounter};
 }
 function addVictoryCounter() {
@@ -137,11 +140,9 @@ function addErrorCounter() {
     checkForVictory();
 }
 function checkForVictory() {
-    let questionsArr = document.querySelectorAll('.quizz-question');
-    let questionsNumber = questionsArr.length;
-    if (errorCounter + victoryCounter == questionsNumber) {
+    if (errorCounter + victoryCounter == testObject.questions.length) {
         displayScore();
-    }
+    } else {return}
 }
 function scrollIntoNextQuestion() {
     console.log("função scroll into next question sendo executada");
@@ -202,7 +203,7 @@ function getObjectReturnVisual() {
             <h1>BuzzQuizz</h1>
     </div>
     <div class="quizz-screen">
-    <div class="quizz-header" style="background-image: src(${testObject.image});">
+    <div class="quizz-header" style="background-image: url('${testObject.image}');">
             <div class="black-filter">
                 <h1>${testObject.title}</h1>
             </div>
@@ -223,7 +224,8 @@ function getObjectReturnVisual() {
                     answerBox.innerHTML = answerBox.innerHTML +
                     `
                     <div class="quizz-option">
-                        <div class="quizz-option-image card" onclick="revealCardsValue(this), addCounter(this),disableCards(this)">
+                        <div class="quizz-option-image card" onclick="revealCardsValue(this), addCounter(this),disableCards(this)" style="background-image: url('${testObject.questions[i].answers[j].image}');">
+
                             <p class = 'hidden'>${testObject.questions[i].answers[j].isCorrectAnswer}</p>
                         </div>
 
