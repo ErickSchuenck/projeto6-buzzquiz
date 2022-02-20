@@ -140,13 +140,15 @@
     text-align: center;
 }
 .quizz-options-container{
-    margin-top: 221px;
+    margin-top: 20px;
     width: 100%;
     height: 436px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
+
 .quizz-question{
     width: 400px;
     color: white;
@@ -408,7 +410,9 @@
 input:focus {
     outline: 0;
 }
-
+.content{
+    margin-top: 270px;
+}
 .centralizer{
     width: 100;
     display: flex;
