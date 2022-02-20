@@ -111,9 +111,11 @@ function revealCardsValue(e) {
     }
     e.classList.remove("whitish");
     console.log('OLHE AQUI: ' + e.parentNode.parentNode)
+    
     let text = e.parentNode.parentNode.querySelectorAll('.quizz-option-description');
         for (let i = 0; i < text.length; i++) {
-            if (e.querySelector('.hidden').innerHTML == 'false'){text[i].classList.add("reddish")
+            console.log(text)
+            if (text[i].parentNode.querySelector('.hidden').innerHTML === 'false'){text[i].classList.add("reddish")
             } else {text[i].classList.add("greenish")}
     }
 }
@@ -147,10 +149,14 @@ function addErrorCounter() {
 function checkForVictory() {
     if (errorCounter + victoryCounter == testObject.questions.length) {
         setTimeout (displayScore, 2000);
+        setTimeout (scrollToBottom, 2001)
     } else {return}
 }
 function scrollIntoNextQuestion() {
-    console.log("função scroll into next question sendo executada");
+    let positionCounter = victoryCounter + errorCounter;
+    let questionsBoxArr = document.querySelectorAll('.quizz-question');
+    console.log(questionsBoxArr)
+    questionsBoxArr[positionCounter].scrollIntoView();
 }
 function displayScore() {
     let questionsArr = document.querySelectorAll('.quizz-question');
@@ -161,10 +167,13 @@ function displayScore() {
     percentualScore = Math.ceil(percentualScore);
     displayQuizzResult();
 }
+function scrollToBottom(){
+    window.scrollTo(0,100000)
+}
 function displayQuizzResult(){
     let reversedLevels = testObject.levels.reverse()
     for (let i = 0; i < testObject.levels.length; i++){
-        if (reversedLevels[i].minValue < percentualScore){
+        if (reversedLevels[i].minValue <= percentualScore){
             let quizzResult = document.querySelector('body');
             console.log(quizzResult);
             quizzResult.innerHTML = quizzResult.innerHTML +
@@ -237,24 +246,25 @@ function getObjectReturnVisual() {
                         <h1>${testObject.questions[i].title}</h1>
                     </div> 
                     <div class="quizz-container-lower"></div>
-                </div>`
-                for (let j=0; j<testObject.questions[i].answers.length; j++){
+                </div>
+            </div>`
+                let answerArr = testObject.questions[i].answers.sort((a,b) => 0.5-Math.random())
+                for (let j=0; j<answerArr.length; j++){
                     let questionBoxArr = document.querySelectorAll('.quizz-options-container');
                     let answerBox = questionBoxArr[i].querySelector('.quizz-container-lower');
                     answerBox.innerHTML = answerBox.innerHTML +
                     `
                     <div class="quizz-option">
-                        <div class="quizz-option-image card" onclick="revealCardsValue(this), addCounter(this),disableCards(this)" style="background-image: url('${testObject.questions[i].answers[j].image}');">
+                        <div class="quizz-option-image card" onclick="revealCardsValue(this), addCounter(this),disableCards(this)" style="background-image: url('${answerArr[j].image}');">
 
-                            <p class = 'hidden'>${testObject.questions[i].answers[j].isCorrectAnswer}</p>
+                            <p class = 'hidden'>${answerArr[j].isCorrectAnswer}</p>
                         </div>
 
                         <div class="quizz-option-description">
-                            <h2>${testObject.questions[i].answers[j].text}</h2>
+                            <h2>${answerArr[j].text}</h2>
                         </div>
                     </div>
-                    
-            </div>`
+                    `
                 }
         }
 }
