@@ -88,8 +88,6 @@ let testObject =
         }
     ]
 }
-
-
 function createQuizz() {
     console.log("função create quizz sendo executada")
 }
@@ -204,8 +202,10 @@ function returnHome(){
 function restartQuizz() {
     victoryCounter = 0;
     errorCounter = 0;
-    console.log('restart quizz')
     window.scrollTo(0,0);
+    let main1 = document.querySelector('body');
+    main1.innerHTML = ``
+    getObjectReturnVisual();
 }
 function proceedIntoQuizzCreationPage2() {
     console.log('função proceedIntoQuizzCreationPage2() sendo executada')
