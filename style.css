@@ -1,4 +1,6 @@
 * {
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
     user-select: none;
 }
@@ -31,27 +33,9 @@ header {
     justify-content: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     position: fixed;
-    left: 0;
-    top: 0;
+    top: 0px;
     z-index: 1;
 }
-.header h1{
-    font-weight: 700;
-}/*
-.creation-input{
-    display: flex;
-    width: 340px;
-    margin-bottom: 14px;
-}
-.creation-input h1{
-    font-family: Roboto, sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 23px;
-    letter-spacing: 0em;
-    text-align: center;
->>>>>>> 6ad20512*/
 
 header h1 {
     font-size: 37px;
@@ -78,12 +62,6 @@ main {
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-}
-
-.quizz-screen{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 .my-quizzes-space-empty-box h1 {
@@ -140,18 +118,6 @@ main {
 }
 
 .quizz-box {
-    width: 340px;
-    height: 181px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    border-radius: 5px;
-    margin-bottom: 14px;
-    cursor: pointer;
-}
-
-.test-quizz{
     width: 340px;
     height: 181px;
     display: flex;
@@ -352,15 +318,6 @@ main {
     margin-bottom: 54px;
 }
 
-.icon ion-icon {
-    color: black;
-    font-size: 25px;
-}
-
-input:focus {
-    outline: 0;
-}
-
 .home-on-click {
     font-size: 18px;
     line-height: 21px;
@@ -370,7 +327,95 @@ input:focus {
     margin-bottom: 100px;
 }
 
-/*
+.quizz-creation-body {
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0px;
+}
+
+.red-button-final-creation-page {
+    width: 220px;
+}
+
+.header{
+    background-color: #EC362D;
+    color: white;
+    display: flex;
+    width: 100%;
+    height: 69px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.header h1{
+    font-weight: 700;
+}
+.creation-input{
+    display: flex;
+    width: 340px;
+    margin-bottom: 14px;
+}
+.creation-input h1{
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
+.main{
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.quizz-screen{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-quizzes-message{
+    height: 107px;
+    width: 250px;
+    text-align: center;
+    justify-items: center;
+    color: #B9B9B9;
+    font-size: 10px;
+}
+.my-quizzes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+    margin-bottom: 33px;
+}
+.my-quizzes h1{
+    margin-top: 30px;
+    font-weight: 100;
+}
+.lower {
+    margin-top: 35px;
+}
+.test-quizz{
+    width: 340px;
+    height: 181px;
+    background-color: green;
+}
 .quizz-header{
     position: relative;
     margin-top: 69px;
@@ -409,7 +454,6 @@ input:focus {
     align-items: center;
     flex-direction: column;
 }
-
 
 .quizz-question{
     width: 400px;
@@ -651,9 +695,7 @@ input:focus {
     line-height: 21px;
     letter-spacing: 0em;
 }
-.quizz-info-title{
-    margin-bottom: 41px;
-}
+
 .creation-input input{
     font-family: Roboto, sans-serif;
     font-style: italic;
@@ -667,9 +709,7 @@ input:focus {
     display: flex;
     justify-content: space-between;
 }
-.description input{
-    height: 177px;
-}
+
 .icon ion-icon{
     color: black;
     font-size: 25px;
@@ -681,27 +721,6 @@ input:focus {
     width: 100;
     display: flex;
 }
-
-.quizz-options-lower{
-    display: flex;
-}
-*/
-
-.quizz-creation-body {
-    background-color: #FAFAFA;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.margin-bottom-0 {
-    margin-bottom: 0px;
-}
-
-.red-button-final-creation-page {
-    width: 220px;
-}
-
 .test-button{
     margin-top: 100px;
 }
@@ -727,4 +746,3 @@ input:focus {
 .hidden{
     display: none;
 }
-

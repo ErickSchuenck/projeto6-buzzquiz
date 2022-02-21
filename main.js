@@ -65,14 +65,14 @@ function renderizeAllQuizzes() {
         myQuizzID = localStorage.getItem(quizzesArray[i].id.toString());
         if(myQuizzID !== null) {
             myQuizzesSpaceQuizzesListAddress.innerHTML += `
-                <li class="quizz-box" onclick="setTestObject(${quizzesArray[i]})">
+                <li class="quizz-box" onclick="setTestObject(quizzesArray[${i}])">
                     <img src="${quizzesArray[i].image}" class="quizz-box-img">
                     <div class="quizz-box-filter"></div>
                     <h1>${quizzesArray[i].title}</h1>
                 </li>`;
         } else {
             allQuizzesSpaceQuizzesListAddress.innerHTML += `
-                <li class="quizz-box" onclick="setTestObject(${quizzesArray[i]})">
+                <li class="quizz-box" onclick="setTestObject(quizzesArray[${i}])">
                     <img src="${quizzesArray[i].image}" class="quizz-box-img">
                     <div class="quizz-box-filter"></div>
                     <h1>${quizzesArray[i].title}</h1>
@@ -149,7 +149,7 @@ function displayNewScreen(screenOption) {
                 <div class="quizz-info-title">
                     <h1>Seu quizz está pronto!</h1>
                 </div>
-                <button onclick="setTestObject(${quizzesArray[50]})" class="red-button margin-bottom-0 red-button-final-creation-page"><h1>Acessar Quizz<h1></button>
+                <button onclick="setTestObject(quizzesArray[50])" class="red-button margin-bottom-0 red-button-final-creation-page"><h1>Acessar Quizz<h1></button>
                 <a onclick="window.location.reload()" class="home-on-click">Voltar pra home</a>
                 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                 <script src="main.js"></script>
@@ -515,7 +515,7 @@ function renderize2QuizzCreator4() {
 
     let quizzInfoTitleAddress = document.querySelector(".quizz-info-title");
     quizzInfoTitleAddress.insertAdjacentHTML('afterend', `
-        <li class="quizz-box margin-bottom-0" onclick="setTestObject(${quizzesArray[50]}">
+        <li class="quizz-box margin-bottom-0" onclick="setTestObject(quizzesArray[50])">
             <img src="${quizzesArray[50].image}" class="quizz-box-img">
             <div class="quizz-box-filter"></div>
             <h1>${quizzesArray[50].title}</h1>
@@ -524,6 +524,20 @@ function renderize2QuizzCreator4() {
 }
 
 initiateApp();
+/*
+function setLocalStorage() {
+    const obj = {
+        id: 1,
+        title: "Acerte os personagens corretos dos Simpsons e prove seu amor!",
+        image: "https://lumiere-a.akamaihd.net/v1/images/original_1628718691_los-simpson---star_-_3_e73a2761.jpeg?region=0,379,1300,732&width=960"
+    }
+
+    const string1 = JSON.stringify(obj);
+    localStorage.setItem("1", string1);
+}
+
+setLocalStorage();
+*/
 
 const quizzURL = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
 let victoryCounter = 0;
