@@ -65,14 +65,14 @@ function renderizeAllQuizzes() {
         myQuizzID = localStorage.getItem(quizzesArray[i].id.toString());
         if(myQuizzID !== null) {
             myQuizzesSpaceQuizzesListAddress.innerHTML += `
-                <li class="quizz-box" onclick="setTestObject(quizzesArray[${i}])">
+                <li class="quizz-box" onclick="setTestObject(quizzesArray[${i}])" data-identifier="quizz-card">
                     <img src="${quizzesArray[i].image}" class="quizz-box-img">
                     <div class="quizz-box-filter"></div>
                     <h1>${quizzesArray[i].title}</h1>
                 </li>`;
         } else {
             allQuizzesSpaceQuizzesListAddress.innerHTML += `
-                <li class="quizz-box" onclick="setTestObject(quizzesArray[${i}])">
+                <li class="quizz-box" onclick="setTestObject(quizzesArray[${i}])" data-identifier="quizz-card">
                     <img src="${quizzesArray[i].image}" class="quizz-box-img">
                     <div class="quizz-box-filter"></div>
                     <h1>${quizzesArray[i].title}</h1>
@@ -113,7 +113,7 @@ function displayNewScreen(screenOption) {
                 <div class="quizz-info-title">
                     <h1>Crie suas perguntas</h1>
                 </div>
-                <div class="question-box opened">
+                <div class="question-box opened" data-identifier="question">
                 </div>
                 <button onclick="renderizeQuizzCreator3()" class="red-button"><h1>Prosseguir pra criar níveis<h1></button>
                 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -131,7 +131,7 @@ function displayNewScreen(screenOption) {
                 <div class="quizz-info-title">
                     <h1>Agora, decida os níveis!</h1>
                 </div>
-                <div class="level-box opened">
+                <div class="level-box opened" data-identifier="level">
                 </div>
                 <button onclick="renderize1QuizzCreator4()" class="red-button"><h1>Finalizar Quizz<h1></button>
                 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -164,19 +164,19 @@ function displayNewScreen(screenOption) {
                     <h1>BuzzQuizz</h1>
                 </header>
                 <main>
-                <section class="my-quizzes-space">
+                <section class="my-quizzes-space" data-identifier="user-quizzes">
                     <div class="quizzes-title-box hidden">
                         <h1>Seus Quizzes</h1>
-                        <ion-icon onclick="renderizeQuizzCreator1()" name="add-circle" class="plus-symbol"></ion-icon>
+                        <ion-icon onclick="renderizeQuizzCreator1()" data-identifier="create-quizz" name="add-circle" class="plus-symbol"></ion-icon>
                     </div>
                     <ul class="quizzes-list hidden">
                     </ul>
                     <div class="my-quizzes-space-empty-box hidden">  
                         <h1>Você não criou nenhum quizz ainda :(</h1>
-                        <button class="create-quizz" onclick="renderizeQuizzCreator1()">Criar Quizz</button>
+                        <button onclick="renderizeQuizzCreator1()" data-identifier="create-quizz" class="create-quizz">Criar Quizz</button>
                     </div>
                 </section>
-                <section class="all-quizzes-space">
+                <section class="all-quizzes-space" data-identifier="general-quizzes">
                     <div class="quizzes-title-box">
                         <h1>Todos os Quizzes</h1>
                     </div>
@@ -264,7 +264,7 @@ function renderizeQuizzCreator2() {
     let questionBoxAddress = document.querySelector(".question-box");
     questionBoxAddress.innerHTML = `
         <h2>Pergunta 1</h2>
-        <ion-icon onclick="openQuestionBoxTab(this)" name="create-outline" class="edit-icon hidden"></ion-icon>
+        <ion-icon onclick="openQuestionBoxTab(this)" name="create-outline" class="edit-icon hidden" data-identifier="expand"></ion-icon>
         <input id = "question-text" type="text" placeholder="Texto da pergunta">
         <input id = "question-background" type="text" placeholder="Cor de fundo da pergunta">
         <h3>Resposta correta</h3>
@@ -281,9 +281,9 @@ function renderizeQuizzCreator2() {
 
     for(i=(parseInt(inputsAddress[2].value)-1); i>0; i--) {
         questionBoxAddress.insertAdjacentHTML('afterend', `
-            <div class="question-box tab">
+            <div class="question-box tab" data-identifier="question">
                 <h2>Pergunta ${i+1}</h2>
-                <ion-icon onclick="openQuestionBoxTab(this)" name="create-outline" class="edit-icon"></ion-icon>
+                <ion-icon onclick="openQuestionBoxTab(this)" name="create-outline" class="edit-icon" data-identifier="expand"></ion-icon>
                 <input id = "question-text" type="text" placeholder="Texto da pergunta" class="hidden">
                 <input id = "question-background" type="text" placeholder="Cor de fundo da pergunta" class="hidden">
                 <h3 class="hidden">Resposta correta</h3>
@@ -432,7 +432,7 @@ function renderizeQuizzCreator3() {
     let levelBoxAddress = document.querySelector(".level-box");
     levelBoxAddress.innerHTML = `
         <h2>Nível 1</h2>
-        <ion-icon onclick="openLevelBoxTab(this)" name="create-outline" class="edit-icon hidden"></ion-icon>
+        <ion-icon onclick="openLevelBoxTab(this)" name="create-outline" class="edit-icon hidden" data-identifier="expand"></ion-icon>
         <input type="text" placeholder="Título do nível">
         <input type="text" placeholder="% de acerto mínima">
         <input type="text" placeholder="URL da imagem do nível">
@@ -441,9 +441,9 @@ function renderizeQuizzCreator3() {
 
     for(i=(myQuizzTemplate.levels.length-1); i>0; i--) {
         levelBoxAddress.insertAdjacentHTML('afterend', `
-            <div class="level-box tab">
+            <div class="level-box tab" data-identifier="level">
                 <h2>Nível ${i+1}</h2>
-                <ion-icon onclick="openLevelBoxTab(this)" name="create-outline" class="edit-icon"></ion-icon>
+                <ion-icon onclick="openLevelBoxTab(this)" name="create-outline" class="edit-icon" data-identifier="expand"></ion-icon>
                 <input type="text" placeholder="Título do nível" class="hidden">
                 <input type="text" placeholder="% de acerto mínima" class="hidden">
                 <input type="text" placeholder="URL da imagem do nível" class="hidden">
@@ -776,9 +776,9 @@ function createQuizzApi() {
 function getObjectReturnVisual() {
     let main1 = document.querySelector('body');
     main1.innerHTML = `
-    <div class="header">
+    <header>
             <h1>BuzzQuizz</h1>
-    </div>
+    </header>
     <div class="quizz-screen">
     <div class="quizz-header" style="background-image: url('${testObject.image}');">
             <div class="black-filter">
